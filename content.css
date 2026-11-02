@@ -1,0 +1,77 @@
+/* Stretch: distort the video to exactly fill the player. */
+html[data-tfs-mode="stretch"] video {
+  object-fit: fill !important;
+}
+
+/* Crop: scale the video to cover the player, cutting off the overflowing edges. */
+html[data-tfs-mode="crop"] video {
+  object-fit: cover !important;
+}
+
+/* YouTube sizes the <video> element to the video's aspect ratio via inline styles,
+   so make the video fill the whole player before object-fit can take effect. */
+html[data-tfs-mode="stretch"] .html5-video-player .html5-video-container,
+html[data-tfs-mode="crop"] .html5-video-player .html5-video-container {
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+html[data-tfs-mode="stretch"] .html5-video-player video.html5-main-video,
+html[data-tfs-mode="crop"] .html5-video-player video.html5-main-video {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.tfs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0 2px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tfs-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tfs-button:focus-visible {
+  outline: 2px solid #a970ff;
+  outline-offset: 1px;
+}
+
+.tfs-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Match YouTube's control bar button size. */
+.ytp-right-controls .tfs-button {
+  width: 48px;
+  height: 40px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.ytp-right-controls .tfs-button:hover {
+  background: transparent;
+}
+
+.ytp-right-controls .tfs-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+html[data-tfs-mode="stretch"] .tfs-button,
+html[data-tfs-mode="crop"] .tfs-button {
+  color: #bf94ff;
+}

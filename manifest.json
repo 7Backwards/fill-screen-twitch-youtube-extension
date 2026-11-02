@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Fill Screen for Twitch & YouTube",
+  "version": "1.0.0",
+  "description": "Adds a button to the Twitch and YouTube players that cycles the video between Fit, Stretch and Crop, so it can fill the player with no black bars. Remembers your choice. Not affiliated with Twitch or YouTube.",
+  "homepage_url": "https://github.com/7Backwards/fill-screen-twitch-youtube-extension",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "fill-screen-for-twitch@7backwards",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.twitch.tv/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
