@@ -11,7 +11,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "fill-screen-for-twitch-youtube@7backwards",
+      "id": "{e13b88e9-e44a-472c-bd86-83f99772298d}",
       "strict_min_version": "140.0",
       "data_collection_permissions": {
         "required": [
